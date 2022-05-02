@@ -14,13 +14,12 @@ from keras import models
 from keras.models import load_model
 import sys
 
-model_url = "C:\\Users\\japni\\Desktop\\Sarthak Arora\\cnn (1).h5"
+model_url = process.env.MODEL_PATH
 cnn=load_model(model_url)
 
-file_path = "C:\\Users\\japni\\Desktop\\Sarthak Arora\\Test samples\\" + str(sys.argv[1])
+file_path = process.env.TEST_SAMPLES_PATH + str(sys.argv[1])
 im = PIL.Image.open(file_path)
-# print(sys.argv[1])
-# "C:\\Users\\japni\\Desktop\\Sarthak Arora\\2771.png"
+
 im = np.array(im)
 
 im = im.reshape(1,32,32,1)
